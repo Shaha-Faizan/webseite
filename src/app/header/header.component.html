@@ -1,0 +1,34 @@
+<div class="row">
+  <!-- Input fields for name, email, and number -->
+  <div class="col-4 mb-3">
+    <input type="text" [(ngModel)]="userName" placeholder="Enter user name" class="form-control" />
+  </div>
+  <div class="col-4 mb-3">
+    <input type="email" [(ngModel)]="userEmail" placeholder="Enter user email" class="form-control" />
+  </div>
+  <div class="col-4 mb-3">
+    <input type="text" [(ngModel)]="userNumber" placeholder="Enter user number" class="form-control" />
+  </div>
+  <div class="col-2 mb-3">
+    <input type="number" [(ngModel)]="userId" placeholder="User ID (for update/delete)" class="form-control" />
+  </div>
+
+  <!-- Buttons for CRUD operations -->
+  <div class="col-12">
+    <button class="btn btn-primary me-2" (click)="getUsers()">Get Users</button>
+    <button class="btn btn-success me-2" (click)="addUser()">Add User</button>
+    <button class="btn btn-warning me-2" (click)="updateUser()">Update User</button>
+    <button class="btn btn-danger" (click)="deleteUser()">Delete User</button>
+  </div>
+</div>
+
+<!-- Displaying userList data -->
+<div class="row mt-3">
+  <div class="col-12">
+    <ol *ngIf="userList.length > 0">
+      <li *ngFor="let user of userList">
+        Name: {{ user.name }} | Email: {{ user.email }} | Number: {{ user.number }} (ID: {{ user.id }})
+      </li>
+    </ol>
+  </div>
+</div>
